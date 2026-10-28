@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0e1420" />
+  <title>Quiz Demo | Main Menu</title>
+  <style>
+:root{color-scheme:dark;--bg:#0c1119;--text:#f3f5fb;--muted:#a7b0c5;--blue:#56a8ff;--cyan:#48d9d5;--green:#4de3b1}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 55% 0%,#15233a 0%,transparent 46%),#0c1119;color:var(--text);font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;font-size:14px}a{text-decoration:none;color:inherit}button,input{font:inherit}.app{min-height:100vh;display:grid;grid-template-columns:300px minmax(0,1fr)}.sidebar{background:linear-gradient(160deg,#151c28,#101722);border-right:1px solid #283549;padding:38px 40px;display:flex;flex-direction:column;gap:40px}.brand{display:flex;align-items:center;gap:15px}.brand-logo{height:52px;width:52px;border-radius:15px;background:linear-gradient(135deg,#58b5ff,#1b66d5);display:grid;place-items:center;font-size:23px}.brand h1{font-size:17px;margin:0}.brand p{font-size:12px;color:var(--muted);margin:4px 0 0}.nav-title{font-size:11px;letter-spacing:.14em;color:#8f9bb2;font-weight:800;margin:0 0 -26px 8px}.nav{display:flex;flex-direction:column;gap:8px}.nav-link{display:flex;align-items:center;gap:13px;border-radius:14px;padding:16px 13px;font-weight:700;color:#c9d2e4;border:1px solid transparent;transition:.2s}.nav-link svg{height:20px;width:20px;fill:none;stroke:currentColor;stroke-width:1.9}.nav-link.active,.nav-link:hover{background:#1b304c;border-color:#295079;color:#fff}.sidebar-card,.sidebar-foot{display:none}.content{padding:62px 56px 26px;display:flex;flex-direction:column;min-width:0;min-height:100vh}.topbar{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:24px;gap:16px}.title-box small{display:none}.title-box h2{font-size:32px;letter-spacing:-.04em;margin:0}.title-box p{margin:9px 0 0;color:var(--muted);font-size:14px}.summary-pill{background:#192638;border:1px solid #31435e;border-radius:14px;padding:12px 17px;white-space:nowrap}.count-dot{display:none}.controls{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:29px}.search{display:flex;align-items:center;gap:13px;border:1px solid #36435a;background:#19202c;border-radius:14px;height:49px;padding:0 18px;width:min(430px,100%)}.search svg{width:19px;height:19px;stroke:#a3acc1;fill:none;stroke-width:2}.search input{border:0;outline:0;background:none;color:#fff;width:100%;font-size:14px}.search input::placeholder{color:#9ca8bc}.sort-box{display:flex;gap:4px;background:#171e2a;border:1px solid #36435a;padding:5px;border-radius:14px}.sort-btn{border:0;background:transparent;color:#bac6dd;border-radius:10px;padding:11px 17px;font-size:13px;font-weight:700;cursor:pointer}.sort-btn.active,.sort-btn:hover{background:#234b78;color:#fff}.chapter-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:19px}.chapter-card{border-radius:17px;border:1px solid #3e80c4;background:linear-gradient(155deg,#233146,#1b202a);min-height:239px;padding:23px 24px 19px;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s;min-width:0}.chapter-card:hover{transform:translateY(-4px);box-shadow:0 15px 30px #0007}.chapter-accent-2{border-color:#258d93;background:linear-gradient(155deg,#1e343e,#1b222a)}.chapter-accent-3,.chapter-accent-5{border-color:#7156a2;background:linear-gradient(155deg,#2a2940,#1d2029)}.chapter-accent-4{border-color:#3e80c4;background:linear-gradient(155deg,#233146,#1b202a)}.chapter-accent-6{border-color:#258d93}.card-head{display:flex;align-items:center;justify-content:space-between}.chapter-badge{font-size:12px;letter-spacing:.08em;color:#61b5ff;font-weight:800}.chapter-accent-2 .chapter-badge{color:#49e0df}.chapter-accent-3 .chapter-badge,.chapter-accent-5 .chapter-badge{color:#c294ff}.card-icon{height:45px;width:45px;display:grid;place-items:center;border:1px solid #426c9e;background:#2c4b70;border-radius:13px;color:#8dceff;font-size:23px}.chapter-accent-2 .card-icon{background:#24585c;border-color:#267f82;color:#5ee6e4}.chapter-accent-3 .card-icon,.chapter-accent-5 .card-icon{background:#46355f;border-color:#7756a7;color:#c394ff}.chapter-card h3{font-size:20px;line-height:1.3;letter-spacing:-.03em;margin:18px 0 12px}.chapter-card p{font-size:13px;color:#aeb8ca;line-height:1.55;margin:0 0 16px}.file-name{display:none}.card-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:auto;border-top:1px solid #ffffff17;padding-top:18px}.ready{display:flex;gap:9px;align-items:center;font-size:12px;color:#8bf0cd;font-weight:700}.mini-dot{height:10px;width:10px;border-radius:50%;background:#48dfae}.open-link{display:flex;align-items:center;gap:7px;color:#73a9ff;font-size:12px;font-weight:800}.open-link svg{height:17px;width:17px}.skeleton{min-height:239px;border-radius:17px;background:#202c3c;animation:pulse 1.5s infinite alternate}@keyframes pulse{to{opacity:.5}}.empty{grid-column:1/-1;text-align:center;padding:45px;border:1px dashed #435c78;border-radius:17px}.empty p{color:var(--muted)}.credit-section{display:none}.footer-contact{margin-top:auto;padding-top:50px;text-align:center;font-size:11px;color:#76839b;letter-spacing:.005em}.footer-contact a:hover{color:#a9caff}@media(max-width:1200px){.app{grid-template-columns:240px minmax(0,1fr)}.sidebar{padding:30px 18px}.content{padding:40px 28px 22px}.chapter-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:750px){.app{display:block}.sidebar{padding:16px;gap:15px}.nav-title{display:none}.nav{flex-direction:row}.nav-link{padding:10px 12px}.content{padding:28px 18px;min-height:calc(100vh - 145px)}.controls{flex-wrap:wrap}.chapter-grid{grid-template-columns:1fr}.chapter-card{min-height:215px}.title-box h2{font-size:28px}.footer-contact{font-size:10px;line-height:1.8}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" aria-label="Main navigation">
+      <a class="brand" href="index.html">
+        <span class="brand-logo">📘</span>
+        <span>
+          <h1>QUIZ DEMO</h1>
+          <p>Reusable Study Template</p>
+        </span>
+      </a>
+
+      <div class="nav-title">Workspace</div>
+      <nav class="nav">
+        <a class="nav-link active" href="#chapters">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          Chapter Library
+        </a>
+      </nav>
+
+      <div class="sidebar-card">
+        <div class="kicker">✦ Demo Main Menu</div>
+        <p>This page is your central hub. All chapter quiz files should open from here, and every chapter page should link its <strong>Main Menu</strong> button back to <code>index.html</code>.</p>
+      </div>
+
+      <div class="sidebar-foot">Universal quiz menu · dark demo theme</div>
+    </aside>
+
+    <main class="content">
+      <section id="chapters">
+        <div class="topbar">
+          <div class="title-box">
+            <small>Main Menu</small>
+            <h2>Explore Chapters</h2>
+            <p>Find your next quiz and jump right in.</p>
+          </div>
+          <div id="chapterCount" class="summary-pill"><span class="count-dot"></span><span>Loading chapters…</span></div>
+        </div>
+
+        <div class="controls">
+          <label class="search" aria-label="Search chapters">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+            <input id="searchInput" type="text" placeholder="Search chapters..." autocomplete="off" />
+          </label>
+
+          <div class="sort-box" aria-label="Chapter sorting controls">
+            <button class="sort-btn active" data-order="asc" type="button">Chapter ↑</button>
+            <button class="sort-btn" data-order="desc" type="button">Chapter ↓</button>
+          </div>
+        </div>
+
+        <div id="chapterGrid" class="chapter-grid" aria-live="polite">
+          <div class="skeleton"></div>
+          <div class="skeleton"></div>
+          <div class="skeleton"></div>
+          <div class="skeleton"></div>
+        </div>
+      </section>
+
+      <footer class="footer-contact" id="credits"><a href="mailto:viet5a2007@gmail.com">viet5a2007@gmail.com</a> · <a href="mailto:11258918@st.neu.edu.vn">11258918@st.neu.edu.vn</a> · <a href="tel:0359121207">0359121207</a></footer>
+    </main>
+  </div>
+
+  <script>
+    const GITHUB_USER = 'Vichenko12';
+    const GITHUB_REPO = 'Project-Appraisal-new';
+    const GITHUB_BRANCH = 'main';
+
+    const MAIN_MENU_FILE = 'index.html';
+    const ACTIVE_CHAPTER_LABEL = 'Ready to practice';
+    const gridEl = document.getElementById('chapterGrid');
+    const countEl = document.getElementById('chapterCount');
+    const searchEl = document.getElementById('searchInput');
+    const sortButtons = [...document.querySelectorAll('.sort-btn')];
+
+    let chapterFiles = [];
+    let descending = false;
+
+    const accentClasses = [
+      'chapter-accent-1',
+      'chapter-accent-2',
+      'chapter-accent-3',
+      'chapter-accent-4',
+      'chapter-accent-5',
+      'chapter-accent-6'
+    ];
+
+    function escapeHtml(text){
+      return String(text)
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#39;');
+    }
+
+    function getChapterNumber(filename){
+      const match = filename.match(/chapter[\s_\-]*(\d+)/i);
+      return match ? Number(match[1]) : Number.MAX_SAFE_INTEGER;
+    }
+
+    function getChapterLabel(filename){
+      const number = getChapterNumber(filename);
+      return Number.isFinite(number) && number !== Number.MAX_SAFE_INTEGER
+        ? `CHAPTER ${number}`
+        : 'PRACTICE QUIZ';
+    }
+
+    function filenameToTitle(filename){
+      let cleaned = filename
+        .replace(/\.html?$/i, '')
+        .replace(/chapter[\s_\-]*\d+/i, '')
+        .replace(/[_\-]+/g, ' ')
+        .replace(/\bquiz\b/ig, '')
+        .replace(/\bmcqs?\b/ig, '')
+        .replace(/\banimated\b/ig, '')
+        .replace(/\bvisual\s*data\b/ig, '')
+        .replace(/\btechnical\b/ig, 'Technical')
+        .replace(/\bhrm\b/ig, 'HRM')
+        .replace(/\bv\d+\b/ig, '')
+        .replace(/\s+/g, ' ')
+        .trim();
+
+      if(!cleaned) return 'Practice Questions & Review';
+
+      cleaned = cleaned
+        .split(' ')
+        .map(word => word === word.toUpperCase() && word.length > 1 ? word : word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+        .join(' ')
+        .replace(/\bHrm\b/g, 'HRM');
+
+      if (/case study/i.test(cleaned)) return 'Case Study';
+      return cleaned;
+    }
+
+    function filenameToDescription(filename){
+      const title = filenameToTitle(filename).toLowerCase();
+      if(title.includes('case study')) return 'Interactive case practice • Answers & explanations';
+      if(title.includes('technical')) return 'Technical appraisal • HRM appraisal • Review';
+      if(title.includes('review')) return 'Practice set • Instant feedback • Explanations';
+      return 'Interactive practice • Answers & explanations';
+    }
+
+    function makeCard(filename, index){
+      const accentClass = accentClasses[index % accentClasses.length];
+      const label = getChapterLabel(filename);
+      const title = filenameToTitle(filename);
+      const description = filenameToDescription(filename);
+      const href = `./${encodeURIComponent(filename)}`;
+
+      const card = document.createElement('a');
+      card.className = `chapter-card ${accentClass}`;
+      card.href = href;
+      card.setAttribute('aria-label', `Open ${label} ${title}`);
+
+      card.innerHTML = `
+        <div class="card-head">
+          <span class="chapter-badge">${escapeHtml(label)}</span>
+          <span class="card-icon">✦</span>
+        </div>
+        <h3>${escapeHtml(title)}</h3>
+        <p>${escapeHtml(description)}</p>
+        <div class="file-name"><span>File</span><span>${escapeHtml(filename)}</span></div>
+        <div class="card-foot">
+          <span class="ready"><span class="mini-dot"></span>${ACTIVE_CHAPTER_LABEL}</span>
+          <span class="open-link">Open Quiz
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+          </span>
+        </div>
+      `;
+
+      return card;
+    }
+
+    function setCount(value){
+      countEl.innerHTML = `<span class="count-dot"></span><span>${value}</span>`;
+    }
+
+    function render(){
+      const keyword = searchEl.value.trim().toLowerCase();
+      const sorted = [...chapterFiles].sort((a, b) => {
+        const na = getChapterNumber(a);
+        const nb = getChapterNumber(b);
+        const diff = na - nb;
+        const base = diff || a.localeCompare(b, undefined, {numeric:true, sensitivity:'base'});
+        return descending ? -base : base;
+      });
+
+      const filtered = sorted.filter(file => {
+        const haystack = `${file} ${filenameToTitle(file)} ${getChapterLabel(file)}`.toLowerCase();
+        return haystack.includes(keyword);
+      });
+
+      gridEl.replaceChildren();
+      setCount(`${chapterFiles.length} ${chapterFiles.length === 1 ? 'chapter' : 'chapters'}`);
+
+      if(!filtered.length){
+        const empty = document.createElement('div');
+        empty.className = 'empty';
+        empty.innerHTML = `
+          <div>
+            <h3>No chapters found</h3>
+            <p>Try another search, or upload more chapter HTML files into the same GitHub Pages folder as <code>${MAIN_MENU_FILE}</code>.</p>
+          </div>
+        `;
+        gridEl.append(empty);
+        return;
+      }
+
+      filtered.forEach((file, index) => gridEl.append(makeCard(file, index)));
+    }
+
+    async function loadChapters(){
+      try{
+        const url = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/?ref=${encodeURIComponent(GITHUB_BRANCH)}`;
+        const response = await fetch(url, {
+          headers: { Accept: 'application/vnd.github+json' },
+          cache: 'no-store'
+        });
+
+        if(!response.ok) throw new Error(`GitHub API ${response.status}`);
+        const items = await response.json();
+
+        chapterFiles = items
+          .filter(item => item.type === 'file')
+          .map(item => item.name)
+          .filter(name => /\.html?$/i.test(name))
+          .filter(name => name.toLowerCase() !== MAIN_MENU_FILE.toLowerCase());
+      }catch(error){
+        console.warn('Unable to load chapter list:', error);
+        gridEl.innerHTML = '<div class="empty"><h3>Could not load chapters</h3><p>Please check that the GitHub repository is public, the branch is main, and your internet connection is working.</p></div>';
+        setCount('Unavailable');
+        return;
+      }
+
+      chapterFiles = [...new Set(chapterFiles)];
+      render();
+    }
+
+    searchEl.addEventListener('input', render);
+
+    sortButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        sortButtons.forEach(btn => btn.classList.toggle('active', btn === button));
+        descending = button.dataset.order === 'desc';
+        render();
+      });
+    });
+
+    loadChapters();
+  </script>
+</body>
+</html>
